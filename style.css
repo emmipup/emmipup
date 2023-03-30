@@ -1,184 +1,117 @@
+/* Navigation bar */
 nav {
+  background-color: #F2BAC9;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(to right, #fbd5c3, #ffe0c2);
-  padding: 20px;
-  font-family: 'Raleway', sans-serif;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
-ul {
+nav ul {
   display: flex;
-  justify-content: space-between;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-li {
-  margin: 0 15px;
-}
-
-a {
-  color: #f7cac9;
-  text-decoration: none;
-  font-size: 18px;
-  transition: color 0.2s ease-in-out;
-}
-
-a:hover {
-  color: #f08080;
-}
-
-.input-section {
-  display: flex;
-  align-items: center;
-}
-
-input[type="text"] {
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  margin-right: 10px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-button {
-  background-color: #f08080;
-  color: #f7cac9;
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
+nav ul li a {
+  color: #fff;
+  font-size: 1.2rem;
   font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  margin-left: 2rem;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
-button:hover {
-  background-color: #f7cac9;
+nav ul li a:hover {
+  color: #F2BAC9;
 }
 
+nav ul li a:before {
+  content: "";
+  display: block;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+}
+
+nav ul li a:hover:before,
+nav ul li a.active:before {
+  background-color: #fff;
+  width: 100%;
+  transition: width 0.3s ease-out;
+}
+
+/* Body */
 body {
+  background-color: #F6E8EA;
   font-family: 'Montserrat', sans-serif;
-  background-color: #f8ede3;
-  color: #f7cac9;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h1 {
-  font-size: 48px;
   margin: 0;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  text-align: center;
-  text-shadow: 1px 1px #f08080;
 }
 
-.post {
-  background-color: #fbd5c3;
-  border-radius: 5px;
-  padding: 20px;
-  width: 100%;
+.container {
+  margin: 6rem auto;
   max-width: 800px;
-  margin-bottom: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.post h2 {
-  font-size: 32px;
-  margin-top: 0;
-  margin-bottom: 10px;
-  text-shadow: 1px 1px #f08080;
+/* Article */
+article {
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 4rem;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease-out;
 }
 
-.post p {
-  margin: 0;
-  line-height: 1.5;
+article:hover {
+  transform: translateY(-0.5rem);
 }
 
-.post a {
-  color: #f7cac9;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.2s ease-in-out;
-}
-
-.post a:hover {
-  color: #f08080;
-}
-
-img {
+article img {
   max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.icon {
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  margin-right: 5px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.icon-home {
-  background-image: url('home-icon.png');
+article .text {
+  padding: 2rem;
 }
 
-.icon-blog {
-  background-image: url('blog-icon.png');
-}
-
-.icon-about {
-  background-image: url('about-icon.png');
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f08080;
-  color: #f8ede3;
-  height: 60px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  font-size: 14px;
-  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.footer p {
+article h2 {
+  color: #F2BAC9;
+  font-size: 2rem;
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  body {
-    padding: 20px 10px;
-  }
+article p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 1rem 0 0;
+}
 
-  h1 {
-    font-size: 36px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
+article .date {
+  background-color: #F2BAC9;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
-  .post h2 {
-    font-size: 24px;
-  }
+/* Images */
+img {
+  filter: grayscale(100%) brightness(50%);
+}
 
-  .icon {
-    height: 16px;
-    width: 16px;
-  }
-
-  .footer {
-    font-size: 12px;
-    height: 40px;
-  }
+img:hover {
+  filter: none;
 }
